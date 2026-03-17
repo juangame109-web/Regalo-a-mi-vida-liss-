@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para Liss 💖</title>
+
+<style>
+body{
+  margin:0;
+  font-family: Arial;
+  text-align:center;
+  background: linear-gradient(#ffe6eb,#ffffff);
+  overflow-x:hidden;
+}
+
+/* PORTADA */
+#carta{
+  position:fixed;
+  width:100%;
+  height:100vh;
+  background:#ff4d6d;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:10;
+}
+
+/* CUADRO */
+.cuadro{
+  background:white;
+  padding:30px;
+  border-radius:15px;
+  box-shadow:0 5px 20px rgba(0,0,0,0.2);
+}
+
+/* CONTENIDO */
+#main{
+  display:none;
+  padding:20px;
+  max-width:600px;
+  margin:auto;
+}
+
+/* NOMBRE */
+.nombre{
+  font-size:32px;
+  color:#ff1a66;
+  animation: latido 1s infinite;
+}
+
+@keyframes latido{
+  0%{transform:scale(1);}
+  50%{transform:scale(1.2);}
+  100%{transform:scale(1);}
+}
+
+/* BOTONES */
+button{
+  margin:10px;
+  padding:10px 18px;
+  border:none;
+  border-radius:15px;
+  background:#ff4d6d;
+  color:white;
+}
+
+/* CORAZONES LLUVIA */
+.corazon{
+  position:fixed;
+  top:-10px;
+  animation: caer linear;
+}
+
+@keyframes caer{
+  to{
+    transform:translateY(110vh);
+    opacity:0;
+  }
+}
+
+/* CORAZÓN GIGANTE */
+.big-heart{
+  position:fixed;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%) scale(0);
+  font-size:120px;
+  z-index:50;
+  animation: boom 3s forwards;
+}
+
+@keyframes boom{
+  0%{transform:translate(-50%,-50%) scale(0);opacity:0;}
+  50%{transform:translate(-50%,-50%) scale(1.5);opacity:1;}
+  100%{transform:translate(-50%,-50%) scale(0);opacity:0;}
+}
+
+/* SORPRESA */
+.sorpresa{
+  position:fixed;
+  font-size:25px;
+  animation: explotar 3s forwards;
+}
+
+@keyframes explotar{
+  0%{transform:scale(0);}
+  50%{transform:scale(1.5);}
+  100%{transform:translateY(-200px); opacity:0;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- AUDIO -->
+<audio id="musica">
+  <source src="AUD-20260316-WA0060.mp3" type="audio/mpeg">
+</audio>
+
+<!-- PORTADA -->
+<div id="carta">
+  <div class="cuadro">
+    <h2>💌 Tengo algo para ti</h2><br>
+    <button onclick="abrir()">Abrir ❤️</button>
+  </div>
+</div>
+
+<!-- CONTENIDO -->
+<div id="main">
+
+<h1>Feliz cumpleaños número 17 mi vida 😘</h1>
+
+<p class="nombre">Liss 💖😍</p>
+
+<p>
+Te amo mucho ❤️<br><br>
+
+Hoy es tu día especial, 12 de mayo 😍<br><br>
+
+muchas gracias por todos los momentos bellos que me haz dado, todo eso tan inolvidable e increíble, hace poco cumplimos 9 meses y de verdad valoro y agradezco mucho eso ❤️, hoy es tu día, un día muy especial por que mi niña hermosa va a cumplir 17 años, muchas felicidades eres un mujer muy hermosa, te amo con todo mi corazón y ser 😍🫶, me encantas y quiero vivir toda una vida contigo, muchas felicidades y feliiz cumpleaños pásatela bieeen mi amooor 🥺❤️❤️, Te amo con todo mi corazón <br><br>
+
+Liss eres mi niña bonita, mi hermosa, la niña de mi vida, de verdad desde el primer día que te vi me enamoraste como no tienes idea, eres la mujer de mis sueños, un sueño hecho realidad 💖💖
+</p>
+
+<button onclick="playMusic()">🎵 Reproducir canción</button>
+<button onclick="mensaje()">💌 Mensaje especial</button>
+<button onclick="sorpresa()">🌹❤️ ¡Sorpresa!</button>
+
+<p id="msg"></p>
+
+</div>
+
+<script>
+
+// abrir con corazón gigante
+function abrir(){
+  const big = document.createElement("div")
+  big.className="big-heart"
+  big.innerHTML="❤️"
+  document.body.appendChild(big)
+
+  setTimeout(()=>{
+    big.remove()
+    document.getElementById("carta").style.display="none"
+    document.getElementById("main").style.display="block"
+  },3000)
+}
+
+// música
+function playMusic(){
+  document.getElementById("musica").play()
+}
+
+// mensaje
+function mensaje(){
+  document.getElementById("msg").innerText =
+  "Eres lo mejor que me ha pasado ❤️ Te amo muchísimo 😘"
+}
+
+// lluvia corazones
+setInterval(()=>{
+  const h=document.createElement("div")
+  h.className="corazon"
+  h.style.left=Math.random()*100+"%"
+  h.style.fontSize=(Math.random()*15+10)+"px"
+  h.style.animationDuration=(Math.random()*3+2)+"s"
+  h.innerHTML="💖"
+  document.body.appendChild(h)
+  setTimeout(()=>h.remove(),5000)
+},500)
+
+// sorpresa
+function sorpresa(){
+  for(let i=0;i<20;i++){
+    const s=document.createElement("div")
+    s.className="sorpresa"
+    s.style.left=Math.random()*100+"%"
+    s.style.top=Math.random()*100+"%"
+    s.innerHTML = Math.random()>0.5 ? "🌹" : "💖"
+    document.body.appendChild(s)
+    setTimeout(()=>s.remove(),3000)
+  }
+}
+
+</script>
+
+</body>
+</html>
