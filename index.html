@@ -201,19 +201,28 @@ function sorpresa(){
     s.className="sorpresa"
     s.style.left=Math.random()*100+"%"
     s.style.top=Math.random()*100+"%"
-   if(Math.random()>0.66){
-     s.innerHTML="🌹"
-   }
-    else if (Math.random()>0.33){
-      s.innerHTML="💖"
-    }else{
-      const img=document.createElement("img")
-      img.src="IMG_20260301_160403061_HDR.jpg"
-      img.style.width="25px"
-      img.style.heigth="25px"
-      s.appendChild(img)
+  let random =Math.random()
+    if(random>0.75){
+      s.innerHTML="🌹"
     }
-    document.body.appendChild(s)
+    else if (random>0.5){
+      s.innerHTML="💖"
+    }
+    else if (random>0.25){
+      const img1=document.createElement("img")
+      img1.src="IMG_20260301_160403061_HDR.jpg"
+      img1.style.width="30px"
+      img1.style.heigth="30px"
+      s.appendChild(img1)
+    }
+    else{
+      const img2=document.createElement("img")
+      img2.src="IMG_20260314_191517765.jpg"
+      img2.style.width="30px"
+      img2.style.heigth="30px"
+      s.appendChild(img2)
+    }
+      document.body.appendChild(s)
     setTimeout(()=>s.remove(),4000)
   }
 }
