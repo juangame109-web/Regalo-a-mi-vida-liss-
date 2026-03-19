@@ -157,9 +157,11 @@
     let contadorIniciado = false;
 
     function abrir() {
-        if ("vibrate" in navigator) {
-        navigator.vibrate([100, 50, 100]);
+        setTimeout(()=>{
+        if (navigator.vibrate) {
+        navigator.vibrate([150, 50, 150]);
     }
+        }, 50 );
         // Efecto corazón gigante
         const big = document.createElement("div");
         big.className = "big-heart";
