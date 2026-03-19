@@ -157,15 +157,12 @@
     let contadorIniciado = false;
 
     function abrir() {
-        setTimeout(()=>{
-            try{
-        if ("vibrate" in navigator) {
-        navigator.vibrate(1000);
+       if ("vibrate" in navigator) {
+        console.log("Vibration API is supported");
+        navigator.vibrate([150, 50, 150]); // El latido que querías
+    } else {
+        alert("Tu navegador no soporta vibración"); // Un alert para que lo veas en el cel
     }
-            } catch (e) {
-                console.log("vibracion no soportada o bloqueada");
-            }
-        }, 100 );
         // Efecto corazón gigante
         const big = document.createElement("div");
         big.className = "big-heart";
