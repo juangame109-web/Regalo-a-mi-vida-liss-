@@ -102,6 +102,10 @@ button{
   font-size:25px;
   animation: explotar 3s forwards;
 }
+  .sorpresa img{
+    width:25px;
+    height:25px;
+  }
 
 @keyframes explotar{
   0%{transform:scale(0);}
@@ -197,7 +201,18 @@ function sorpresa(){
     s.className="sorpresa"
     s.style.left=Math.random()*100+"%"
     s.style.top=Math.random()*100+"%"
-    s.innerHTML = Math.random()>0.5 ? "🌹" : "💖"
+   if(Math.random()>0.66){
+     s.innerHTML="🌹"
+   }
+    else if (Math.random()>0.33){
+      s.innerHTML="💖"
+    }else{
+      const img=document.createElement("img")
+      img.src="IMG_20260301_160403061_HDR.jpg"
+      img.style.width="25px"
+      img.style.heigth="25px"
+      s.appendChild(img)
+    }
     document.body.appendChild(s)
     setTimeout(()=>s.remove(),3000)
   }
