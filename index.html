@@ -1,286 +1,242 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Para Liss 💖</title>
-
-<style>
-    body {
-        margin: 0;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        text-align: center;
-        background: linear-gradient(#ffe6eb, #ffffff);
-        overflow-x: hidden;
-        min-height: 100vh;
-    }
-
-    /* PORTADA */
-    #carta {
-        position: fixed;
-        width: 100%;
-        height: 100vh;
-        background: #ff4d6d;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 100;
-        transition: opacity 0.5s;
-    }
-
-    /* CUADRO */
-    .cuadro {
-        background: white;
-        padding: 40px;
-        border-radius: 20px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-    }
-
-    /* CONTENIDO PRINCIPAL */
-    #main {
-        display: none;
-        padding: 40px 20px;
-        max-width: 600px;
-        margin: auto;
-    }
-
-    /* NOMBRE CON ANIMACIÓN */
-    .nombre {
-        font-size: 38px;
-        color: #ff1a66;
-        font-weight: bold;
-        display: inline-block;
-        animation: latido 1.2s infinite;
-        margin: 20px 0;
-    }
-
-    @keyframes latido {
-        0% { transform: scale(1); }
-        50% { transform: scale(1.1); }
-        100% { transform: scale(1); }
-    }
-
-    /* BOTONES */
-    button {
-        margin: 10px;
-        padding: 12px 25px;
-        border: none;
-        border-radius: 25px;
-        background: #ff4d6d;
-        color: white;
-        font-weight: bold;
-        cursor: pointer;
-        transition: 0.3s;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-
-    button:hover {
-        background: #ff1a66;
-        transform: translateY(-3px);
-    }
-
-    /* CONTADOR */
-    #contadorAmor {
-        margin-top: 30px;
-        padding: 20px;
-        background: rgba(255, 255, 255, 0.8);
-        border-radius: 15px;
-        color: #d63384;
-        font-weight: bold;
-        line-height: 1.6;
-        border: 2px dashed #ffb3c1;
-    }
-
-    /* LLUVIA DE CORAZONES */
-    .corazon {
-        position: fixed;
-        top: -20px;
-        z-index: 1;
-        animation: caer linear forwards;
-    }
-
-    @keyframes caer {
-        to {
-            transform: translateY(110vh) rotate(360deg);
-            opacity: 0;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Liss 💖</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: linear-gradient(#ffe6eb, #ffffff);
+            overflow-x: hidden;
+            min-height: 100vh;
         }
-    }
 
-    /* CORAZÓN GIGANTE */
-    .big-heart {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        font-size: 150px;
-        z-index: 200;
-        animation: boom 3s forwards;
-        pointer-events: none;
-    }
+        /* PORTADA */
+        #carta {
+            position: fixed;
+            width: 100%;
+            height: 100vh;
+            background: #ff4d6d;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+        }
 
-    @keyframes boom {
-        0% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
-        50% { transform: translate(-50%, -50%) scale(1.8); opacity: 1; }
-        100% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
-    }
+        .cuadro {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
 
-    /* SORPRESA (FLOTANTES) */
-    .sorpresa {
-        position: fixed;
-        z-index: 50;
-        animation: explotar 4s forwards;
-    }
+        /* CONTENIDO PRINCIPAL */
+        #main {
+            display: none;
+            padding: 20px;
+            max-width: 600px;
+            margin: auto;
+        }
 
-    .sorpresa img {
-        border-radius: 10px;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    }
+        .nombre {
+            font-size: 32px;
+            color: #ff1a66;
+            display: inline-block;
+            animation: latido 1s infinite;
+            margin: 15px 0;
+        }
 
-    @keyframes explotar {
-        0% { transform: scale(0) rotate(0deg); opacity: 0; }
-        20% { opacity: 1; }
-        100% { transform: translateY(-300px) rotate(20deg); opacity: 0; }
-    }
-</style>
+        @keyframes latido {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        button {
+            margin: 10px;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 15px;
+            background: #ff4d6d;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* CONTADOR */
+        #contadorAmor {
+            margin-top: 20px;
+            padding: 15px;
+            background: white;
+            border-radius: 10px;
+            color: #ff1a66;
+            font-weight: bold;
+            border: 1px solid #ffb3c1;
+        }
+
+        /* CORAZONES LLUVIA */
+        .corazon {
+            position: fixed;
+            top: -10px;
+            z-index: 1;
+            animation: caer linear forwards;
+        }
+
+        @keyframes caer {
+            to {
+                transform: translateY(110vh);
+                opacity: 0;
+            }
+        }
+
+        /* CORAZÓN GIGANTE */
+        .big-heart {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            font-size: 120px;
+            z-index: 150;
+            animation: boom 3s forwards;
+        }
+
+        @keyframes boom {
+            0% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+            50% { transform: translate(-50%, -50%) scale(1.5); opacity: 1; }
+            100% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+        }
+
+        .sorpresa {
+            position: fixed;
+            z-index: 50;
+            animation: explotar 3s forwards;
+        }
+
+        @keyframes explotar {
+            0% { transform: scale(0); }
+            50% { transform: scale(1.5); }
+            100% { transform: translateY(-200px); opacity: 0; }
+        }
+    </style>
 </head>
-
 <body>
 
-<audio id="musica" loop>
-    <source src="AUD-20260316-WA0060.mp3" type="audio/mpeg">
-</audio>
+    <audio id="musica" loop>
+        <source src="AUD-20260316-WA0060.mp3" type="audio/mpeg">
+    </audio>
 
-<div id="carta">
-    <div class="cuadro">
-        <h2 style="color: #ff4d6d;">💌 Tengo algo para ti</h2>
-        <p>Haz clic para abrir tu regalo</p>
-        <button onclick="abrir()">Abrir ❤️</button>
+    <div id="carta">
+        <div class="cuadro">
+            <h2>💌 Tengo algo para ti</h2><br>
+            <button onclick="abrir()">Abrir ❤️</button>
+        </div>
     </div>
-</div>
 
-<div id="main">
-    <h1 style="color: #ff4d6d;">¡Feliz cumpleaños número 17, mi vida! 😘</h1>
+    <div id="main">
+        <h1>Feliz cumpleaños número 17 mi vida 😘</h1>
+        <p class="nombre">Liss 💖😍</p>
+        <p>
+            Te amo mucho ❤️<br><br>
+            Hoy es tu día especial, 12 de mayo 😍<br><br>
+            muchas gracias por todos los momentos bellos que me haz dado, todo eso tan inolvidable e increíble, hace poco cumplimos 9 meses y de verdad valoro y agradezco mucho eso ❤️, hoy es tu día, un día muy especial por que mi niña hermosa va a cumplir 17 años, muchas felicidades eres un mujer muy hermosa, te amo con todo mi corazón y ser 😍🫶, me encantas y quiero vivir toda una vida contigo, muchas felicidades y feliiz cumpleaños pásatela bieeen mi amooor 🥺❤️❤️, Te amo con todo mi corazón <br><br>
+            Liss eres mi niña bonita, mi hermosa, la niña de mi vida, de verdad desde el primer día que te vi me enamoraste como no tienes idea, eres la mujer de mis sueños, un sueño hecho realidad 💖💖
+        </p>
 
-    <p class="nombre">Liss 💖😍</p>
-
-    <p style="font-size: 18px; color: #555;">
-        Te amo mucho ❤️<br><br>
-        Hoy es tu día especial, <b>12 de mayo</b> 😍<br><br>
-        Muchas gracias por todos los momentos bellos que me has dado, todo eso tan inolvidable e increíble. Hace poco cumplimos 9 meses y de verdad valoro y agradezco mucho eso ❤️.<br><br>
-        Hoy mi niña hermosa cumple 17 años. Muchas felicidades, eres una mujer muy hermosa, te amo con todo mi corazón y mi ser 😍🫶. Me encantas y quiero vivir toda una vida contigo.<br><br>
-        <b>¡Pásatela bien mi amor! 🥺❤️❤️</b>
-    </p>
-
-    <div id="contadorAmor">Cargando nuestra historia...</div>
-
-    <div style="margin-top: 30px;">
         <button onclick="playMusic()">🎵 Reproducir canción</button>
         <button onclick="mensaje()">💌 Mensaje especial</button>
         <button onclick="sorpresa()">🌹❤️ ¡Sorpresa!</button>
+
+        <p id="msg" style="font-weight: bold; color: #ff1a66; margin-top: 10px;"></p>
+        <p id="contadorAmor"></p>
     </div>
 
-    <p id="msg" style="margin-top: 20px; font-weight: bold; color: #ff1a66; height: 20px;"></p>
-</div>
-
 <script>
-let contadorActivo = false;
+    let contadorIniciado = false;
 
-function abrir() {
-    // 1. Crear el corazón gigante
-    const big = document.createElement("div");
-    big.className = "big-heart";
-    big.innerHTML = "❤️";
-    document.body.appendChild(big);
+    function abrir() {
+        // Efecto corazón gigante
+        const big = document.createElement("div");
+        big.className = "big-heart";
+        big.innerHTML = "❤️";
+        document.body.appendChild(big);
 
-    // 2. Transición a la página principal
-    setTimeout(() => {
-        big.remove();
-        document.getElementById("carta").style.opacity = "0";
         setTimeout(() => {
+            big.remove();
             document.getElementById("carta").style.display = "none";
             document.getElementById("main").style.display = "block";
-            iniciarContador(); // Iniciar el tiempo al abrir
-        }, 500);
-    }, 2500);
-}
+            
+            if (!contadorIniciado) {
+                iniciarContador();
+                contadorIniciado = true;
+            }
+        }, 2500);
+    }
 
-function iniciarContador() {
-    if (contadorActivo) return;
-    contadorActivo = true;
+    function iniciarContador() {
+        // Septiembre es mes 8 en JS
+        const inicio = new Date(2025, 8, 8); 
+        
+        setInterval(() => {
+            const ahora = new Date();
+            const diferencia = ahora - inicio;
 
-    // Fecha de inicio: 8 de Septiembre de 2025
-    // Nota: En JS los meses van de 0 a 11 (Septiembre es el mes 8)
-    const inicio = new Date(2025, 8, 8); 
+            const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+            const horas = Math.floor((diferencia / (1000 * 60 * 60)) % 24);
+            const minutos = Math.floor((diferencia / (1000 * 60)) % 60);
+            const segundos = Math.floor((diferencia / 1000) % 60);
 
+            document.getElementById("contadorAmor").innerText = 
+                "Nuestra historia empezó el 8 de septiembre de 2025 💖\n" + 
+                dias + " días, " + horas + "h " + minutos + "m " + segundos + "s juntos 😘💕";
+        }, 1000);
+    }
+
+    function playMusic() {
+        document.getElementById("musica").play();
+    }
+
+    function mensaje() {
+        document.getElementById("msg").innerText = "Eres lo mejor que me ha pasado ❤️ Te amo muchísimo 😘";
+    }
+
+    // Lluvia de corazones
     setInterval(() => {
-        const ahora = new Date();
-        const diferencia = ahora - inicio;
+        const h = document.createElement("div");
+        h.className = "corazon";
+        h.style.left = Math.random() * 100 + "%";
+        h.style.fontSize = (Math.random() * 15 + 10) + "px";
+        h.style.animationDuration = (Math.random() * 3 + 2) + "s";
+        h.innerHTML = "💖";
+        document.body.appendChild(h);
+        setTimeout(() => h.remove(), 5000);
+    }, 500);
 
-        const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
-        const horas = Math.floor((diferencia / (1000 * 60 * 60)) % 24);
-        const minutos = Math.floor((diferencia / (1000 * 60)) % 60);
-        const segundos = Math.floor((diferencia / 1000) % 60);
-
-        document.getElementById("contadorAmor").innerHTML = 
-            "<span style='font-size:1.2em'>Nuestra historia empezó el 8 de septiembre de 2025 💖</span><br>" + 
-            dias + " días, " + horas + "h " + minutos + "m " + segundos + "s juntos 😘💕";
-    }, 1000);
-}
-
-function playMusic() {
-    const music = document.getElementById("musica");
-    music.play().catch(error => {
-        alert("Haz clic de nuevo para activar la música");
-    });
-}
-
-function mensaje() {
-    document.getElementById("msg").innerText = "Eres lo mejor que me ha pasado ❤️ ¡Te amo muchísimo! 😘";
-}
-
-// Lluvia constante de corazones
-setInterval(() => {
-    const h = document.createElement("div");
-    h.className = "corazon";
-    h.style.left = Math.random() * 100 + "vw";
-    h.style.fontSize = (Math.random() * 20 + 10) + "px";
-    h.style.animationDuration = (Math.random() * 3 + 3) + "s";
-    h.innerHTML = Math.random() > 0.5 ? "💖" : "❤️";
-    document.body.appendChild(h);
-    setTimeout(() => h.remove(), 6000);
-}, 400);
-
-function sorpresa() {
-    for (let i = 0; i < 15; i++) {
-        setTimeout(() => {
+    function sorpresa() {
+        for (let i = 0; i < 20; i++) {
             const s = document.createElement("div");
             s.className = "sorpresa";
-            s.style.left = (Math.random() * 80 + 10) + "%";
-            s.style.top = (Math.random() * 60 + 20) + "%";
-            
+            s.style.left = Math.random() * 100 + "%";
+            s.style.top = Math.random() * 100 + "%";
             let random = Math.random();
-            if (random > 0.6) {
+            
+            if (random > 0.75) {
                 s.innerHTML = "🌹";
-                s.style.fontSize = "40px";
-            } else if (random > 0.3) {
-                const img = document.createElement("img");
-                img.src = "IMG_20260301_160403061_HDR.jpg";
-                img.style.width = "80px";
-                img.style.height = "auto";
-                s.appendChild(img);
+            } else if (random > 0.5) {
+                s.innerHTML = "💖";
             } else {
                 const img = document.createElement("img");
-                img.src = "IMG_20260314_191517765.jpg";
-                img.style.width = "80px";
-                img.style.height = "auto";
+                img.src = random > 0.25 ? "IMG_20260301_160403061_HDR.jpg" : "IMG_20260314_191517765.jpg";
+                img.style.width = "40px";
+                img.style.height = "40px";
                 s.appendChild(img);
             }
             document.body.appendChild(s);
             setTimeout(() => s.remove(), 4000);
-        }, i * 200);
+        }
     }
-}
 </script>
-
 </body>
 </html>
