@@ -156,7 +156,20 @@ Liss eres mi niña bonita, mi hermosa, la niña de mi vida, de verdad desde el p
 </div>
 
 <script>
-
+  let contadorActivo=false
+function abrir(){
+  if(contadorActivo) return
+  contadorActivo=true
+  const inicio= new Date ("2025-9-08")
+  sentInterval(()=>{
+    const ahora=new Date()
+    const diferencia=ahora-inicio
+    const dias=Math.floor(diferencia/(1000*60*60*24))
+    const horas=Math.floor((diferencia/(1000*60*60))%24)
+    const minutos=Math.floor((diferencia/(1000*60))%60)
+    const segundos=Math.floor((diferencia/(1000)%60)
+    document.getElementByld("contadorAmor").inner.Text="Nuestra historia empezo el 8 de septiembre de 2025 💖\n" + dias + "dias," + horas + "h" + minutos + "m" + segundos + "s juntos 😘💕"},1000)
+}
 // abrir con corazón gigante
 function abrir(){
   const big = document.createElement("div")
@@ -225,9 +238,11 @@ function sorpresa(){
       document.body.appendChild(s)
     setTimeout(()=>s.remove(),4000)
   }
+  iniciarContador()
 }
 
-</script>
-
+</script> 
+  <p id="msg"></p>
+  <p id="contadorAmor"></p>
 </body>
 </html>
