@@ -157,6 +157,9 @@
     let contadorIniciado = false;
 
     function abrir() {
+        if (navigator.vibrate) {
+        navigator.vibrate(200);
+    }
         // Efecto corazón gigante
         const big = document.createElement("div");
         big.className = "big-heart";
