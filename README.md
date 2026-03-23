@@ -1,1 +1,1 @@
-esta es la pagiana que cree para mi novia hermosa
+esta es la pagina que cree para mi novia hermosa
